@@ -1,20 +1,50 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from "react";
+import AppStack from "./src/navigation";
+import AppLoading from "expo-app-loading";
+import useFonts from "./src/hooks/useFonts";
+import { Provider } from "react-redux";
+import { createStore, applyMiddleware } from "redux";
+import logger from "redux-logger";
+import rootReducer from "./src/redux/reducers";
+import thunk from "redux-thunk";
+import { composeWithDevTools } from "redux-devtools-extension";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
 
-export default function App() {
+const store = createStore(
+  rootReducer,
+  {},
+  composeWithDevTools(applyMiddleware(thunk, logger))
+);
+
+const App = () => {
+  const [IsReady, SetIsReady] = useState(false);
+
+  const LoadFonts = async () => {
+    await useFonts();
+  };
+
+  if (!IsReady) {
+    return (
+      <AppLoading
+        startAsync={LoadFonts}
+        onFinish={() => SetIsReady(true)}
+        onError={(err) => {
+          console.log(err.message);
+        }}
+      />
+    );
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <Provider store={store}>
+        <BottomSheetModalProvider>
+          <AppStack />
+        </BottomSheetModalProvider>
+      </Provider>
+    </GestureHandlerRootView>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;

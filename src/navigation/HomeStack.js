@@ -1,55 +1,16 @@
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { AntDesign } from "@expo/vector-icons";
-import colors from "../theme/colors";
-import { Platform } from "react-native";
-import MainStack from "./MainStack";
-import ProfileStack from "./ProfileStack";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Home from "../screens/Home/Home";
 
-const Tab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
 
 export default function HomeStack() {
   return (
-    <Tab.Navigator
-      initialRouteName="Home"
-      screenOptions={({ route }) => ({
-        tabBarIcon: ({ focused, color, size }) => {
-          let iconName;
-          if (route.name === "MainStack") {
-            iconName = focused ? "home" : "home";
-          } else if (route.name === "ProfileStack") {
-            iconName = focused ? "user" : "user";
-          }
-
-          return <AntDesign name={iconName} size={size} color={color} />;
-        },
-        tabBarShowLabel: false,
-        tabBarActiveTintColor: colors.primary.bg,
-        tabBarInactiveTintColor: colors.grey.dark,
-        tabBarStyle: {
-          borderTopWidth: 0,
-          borderTopColor: "transparent",
-          elevation: 6,
-          shadowColor: colors.grey.dark,
-          shadowOpacity: 0.1,
-          shadowOffset: {
-            height: 6,
-          },
-          shadowRadius: 30,
-          height: Platform.OS === "android" ? 60 : 80,
-          padding: Platform.OS === "android" ? 0 : 15,
-        },
-      })}
-    >
-      <Tab.Screen
-        name="MainStack"
+    <Stack.Navigator initialRouteName="Home">
+      <Stack.Screen
         options={{ headerShown: false }}
-        component={MainStack}
+        name="Home"
+        component={Home}
       />
-      <Tab.Screen
-        name="ProfileStack"
-        options={{ headerShown: false }}
-        component={ProfileStack}
-      />
-    </Tab.Navigator>
+    </Stack.Navigator>
   );
 }

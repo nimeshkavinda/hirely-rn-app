@@ -1,6 +1,6 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import HomeStack from "./HomeStack";
+import MainStack from "./MainStack";
 import AuthStack from "./AuthStack";
 
 const Stack = createNativeStackNavigator();
@@ -11,8 +11,8 @@ export default function AppStack() {
       <Stack.Navigator initialRouteName="AuthStack">
         <Stack.Screen
           options={{ headerShown: false }}
-          name="HomeStack"
-          component={HomeStack}
+          name="MainStack"
+          component={MainStack}
         />
         <Stack.Screen
           options={{ headerShown: false }}

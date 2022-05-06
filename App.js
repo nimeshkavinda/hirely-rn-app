@@ -18,7 +18,7 @@ const store = createStore(
 );
 
 const App = () => {
-  const [IsReady, SetIsReady] = useState(false);
+  const [IsReady, setIsReady] = useState(false);
 
   const LoadFonts = async () => {
     await useFonts();
@@ -28,7 +28,7 @@ const App = () => {
     return (
       <AppLoading
         startAsync={LoadFonts}
-        onFinish={() => SetIsReady(true)}
+        onFinish={() => setIsReady(true)}
         onError={(err) => {
           console.log(err.message);
         }}

@@ -60,9 +60,7 @@ const Home = () => {
               />
             </View>
             <View>
-              <Text style={[styles.jobCount, { textAlign: "center" }]}>
-                44k
-              </Text>
+              <Text style={[styles.jobCount, { textAlign: "center" }]}>4</Text>
               <Text style={styles.jobType}>Remote jobs</Text>
             </View>
           </TouchableOpacity>
@@ -78,7 +76,7 @@ const Home = () => {
                 />
               </View>
               <View style={styles.smallJobCardRight}>
-                <Text style={styles.jobCount}>44k</Text>
+                <Text style={styles.jobCount}>12</Text>
                 <Text style={styles.jobType}>Full time</Text>
               </View>
             </TouchableOpacity>
@@ -93,7 +91,7 @@ const Home = () => {
                 />
               </View>
               <View style={styles.smallJobCardRight}>
-                <Text style={styles.jobCount}>44k</Text>
+                <Text style={styles.jobCount}>17</Text>
                 <Text style={styles.jobType}>Part time</Text>
               </View>
             </TouchableOpacity>

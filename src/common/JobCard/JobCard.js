@@ -3,6 +3,7 @@ import styles from "./styles";
 import { View, Image, TouchableOpacity } from "react-native";
 import { Text } from "react-native";
 import { Feather } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 
 const JobCard = ({
   id,
@@ -18,8 +19,12 @@ const JobCard = ({
   salary,
   description,
 }) => {
+  const navigation = useNavigation();
   return (
-    <TouchableOpacity style={styles.wrapper}>
+    <TouchableOpacity
+      style={styles.wrapper}
+      onPress={() => navigation.navigate("JobView")}
+    >
       <View style={styles.headingWrapper}>
         <View style={styles.headingLeft}>
           <View>
@@ -34,7 +39,7 @@ const JobCard = ({
           </View>
           <View>
             <Text style={styles.title}>Software Engineer</Text>
-            <Text style={styles.salary}>85,000 LKR</Text>
+            <Text style={styles.salary}>150,000 LKR</Text>
           </View>
         </View>
         <View>

@@ -198,7 +198,7 @@ const JobView = ({ navigation, route }) => {
           <Text style={styles.tagText}>{getJobById?.location}</Text>
           <Entypo name="dot-single" size={24} color="#a0a0a0" />
           <Text style={styles.tagText}>
-            {getJobById?.candidates.length} applicants
+            {getJobById?.candidates?.length} applicants
           </Text>
         </View>
       </View>

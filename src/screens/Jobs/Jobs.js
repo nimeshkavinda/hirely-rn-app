@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { View, SafeAreaView, FlatList } from "react-native";
+import { View, SafeAreaView, FlatList, ActivityIndicator } from "react-native";
 import styles from "./styles";
 import { Text, Input, JobCard } from "../../common";
 import { useDispatch, useSelector } from "react-redux";

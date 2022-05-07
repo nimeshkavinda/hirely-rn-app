@@ -76,6 +76,10 @@ const styles = StyleSheet.create({
     fontWeight: "600",
     lineHeight: 18,
   },
+  flatListWrapper: { flex: 1, paddingTop: 20 },
+  flatList: {
+    paddingHorizontal: 20,
+  },
 });
 
 export default styles;

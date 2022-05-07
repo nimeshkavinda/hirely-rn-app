@@ -1,10 +1,55 @@
-import React from "react";
-import { SafeAreaView, View, Image, TouchableOpacity } from "react-native";
+import React, { useState, useEffect } from "react";
+import {
+  SafeAreaView,
+  View,
+  Image,
+  TouchableOpacity,
+  FlatList,
+} from "react-native";
 import styles from "./styles";
-import { Text } from "../../common";
+import { Text, JobCard } from "../../common";
 import { Entypo } from "@expo/vector-icons";
+import ac from "../../redux/actions";
+import { useDispatch, useSelector } from "react-redux";
 
 const Profile = () => {
+  const [allJobs, setAllJobs] = useState([]);
+
+  const getJobs = useSelector(({ getJobs }) =>
+    getJobs.data ? getJobs.data : {}
+  );
+
+  const getJobsFetching = useSelector(({ getJobs: { fetching } }) => {
+    return fetching;
+  });
+
+  useEffect(() => {
+    let jobsArr = Object.keys(getJobs).map((key) => {
+      return getJobs[key];
+    });
+    if (!getJobsFetching) {
+      setAllJobs(jobsArr);
+    }
+  }, [getJobs, getJobsFetching]);
+
+  const renderItem = ({ item }) => (
+    <View style={{ paddingVertical: 10 }}>
+      <JobCard
+        id={item.id}
+        companyLogo={item.company.companyLogo}
+        created={item.created}
+        title={item.title}
+        companyName={item.company.companyName}
+        noOfApplicants={item.noOfApplicants}
+        jobType={item.jobType}
+        modality={item.modality}
+        industry={item.industry}
+        location={item.location}
+        salary={item.salary}
+        description={item.description}
+      />
+    </View>
+  );
   return (
     <SafeAreaView style={styles.wrapper}>
       <View style={styles.header}>
@@ -45,8 +90,16 @@ const Profile = () => {
           </TouchableOpacity>
         </View>
         <View style={styles.sectionHeadingWrapper}>
-          <Text style={styles.sectionHeading}>Applications</Text>
+          <Text style={styles.sectionHeading}>Jobs applied</Text>
         </View>
+      </View>
+      <View style={styles.flatListWrapper}>
+        <FlatList
+          data={allJobs}
+          renderItem={renderItem}
+          keyExtractor={(item) => item.id}
+          style={styles.flatList}
+        />
       </View>
     </SafeAreaView>
   );

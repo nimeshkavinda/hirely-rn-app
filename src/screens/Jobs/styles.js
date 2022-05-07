@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
   },
   searchWrapper: {
     marginVertical: 20,
-    borderBottomColor: "#f6f6f6",
+    borderBottomColor: "#e5e5e5",
     borderBottomWidth: 1,
     paddingBottom: 20,
   },

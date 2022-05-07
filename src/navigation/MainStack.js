@@ -4,6 +4,7 @@ import colors from "../theme/colors";
 import { Platform } from "react-native";
 import HomeStack from "./HomeStack";
 import ProfileStack from "./ProfileStack";
+import JobStack from "./JobStack";
 
 const Tab = createBottomTabNavigator();
 
@@ -16,6 +17,8 @@ export default function MainStack() {
           let iconName;
           if (route.name === "HomeStack") {
             iconName = focused ? "home" : "home";
+          } else if (route.name === "JobStack") {
+            iconName = focused ? "search1" : "search1";
           } else if (route.name === "ProfileStack") {
             iconName = focused ? "user" : "user";
           }
@@ -44,6 +47,11 @@ export default function MainStack() {
         name="HomeStack"
         options={{ headerShown: false }}
         component={HomeStack}
+      />
+      <Tab.Screen
+        name="JobStack"
+        options={{ headerShown: false }}
+        component={JobStack}
       />
       <Tab.Screen
         name="ProfileStack"

@@ -4,6 +4,7 @@ import colors from "../../theme/colors";
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
+    justifyContent: "space-between",
     backgroundColor: "#fff",
     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
   },
@@ -44,6 +45,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: "700",
     lineHeight: 16,
+    textTransform: "capitalize",
   },
   typeRow: {
     marginHorizontal: 20,
@@ -74,6 +76,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: "600",
     lineHeight: 14,
+    textTransform: "capitalize",
   },
   descriptionWrapper: {
     marginHorizontal: 20,
@@ -93,6 +96,7 @@ const styles = StyleSheet.create({
   },
   buttonWrapper: {
     marginHorizontal: 20,
+    marginBottom: 20,
   },
 });
 

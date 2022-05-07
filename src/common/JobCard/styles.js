@@ -5,12 +5,14 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     padding: 16,
     elevation: 6,
-    shadowColor: "#a0a0a0",
-    shadowOpacity: 0.1,
+    shadowColor: "#a9a9a9",
+    shadowOpacity: 0.2,
     shadowOffset: {
-      height: 6,
+      height: 0,
     },
-    shadowRadius: 30,
+    shadowRadius: 6,
+    width: 350,
+    borderRadius: 10,
   },
   headingWrapper: {
     flexDirection: "row",
@@ -52,6 +54,7 @@ const styles = StyleSheet.create({
     fontWeight: "500",
     lineHeight: 14,
     color: "#000",
+    textTransform: "capitalize",
   },
   footerWrapper: {
     flexDirection: "row",

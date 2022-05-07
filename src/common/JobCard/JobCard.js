@@ -23,7 +23,11 @@ const JobCard = ({
   return (
     <TouchableOpacity
       style={styles.wrapper}
-      onPress={() => navigation.navigate("JobView")}
+      onPress={() =>
+        navigation.navigate("JobView", {
+          jobId: id,
+        })
+      }
     >
       <View style={styles.headingWrapper}>
         <View style={styles.headingLeft}>
@@ -31,15 +35,16 @@ const JobCard = ({
             <Image
               style={styles.companyLogo}
               source={{
-                // uri: `data:image/jpg;base64,${""}`,
-                uri: "https://media-exp1.licdn.com/dms/image/C4D0BAQGNCOdrcOEQzg/company-logo_200_200/0/1519892773304?e=2147483647&v=beta&t=kq3O9XyGoBdQmlXUHJccc5svIA5vVKpnRlAuxBojCvE",
+                uri: `${companyLogo}`,
               }}
               resizeMode="cover"
             />
           </View>
           <View>
-            <Text style={styles.title}>Software Engineer</Text>
-            <Text style={styles.salary}>150,000 LKR</Text>
+            <Text style={styles.title}>{title}</Text>
+            <Text style={[styles.salary, { textTransform: "uppercase" }]}>
+              {salary} LKR
+            </Text>
           </View>
         </View>
         <View>
@@ -49,13 +54,15 @@ const JobCard = ({
       <View style={styles.footerWrapper}>
         <View style={styles.footerLeft}>
           <View style={styles.pill}>
-            <Text style={styles.pillText}>Remote</Text>
+            <Text style={styles.pillText}>
+              {modality ? "Remote" : "In-office"}
+            </Text>
           </View>
           <View style={styles.pill}>
-            <Text style={styles.pillText}>Colombo 3</Text>
+            <Text style={styles.pillText}>{location}</Text>
           </View>
           <View style={styles.pill}>
-            <Text style={styles.pillText}>Full time</Text>
+            <Text style={styles.pillText}>{jobType}</Text>
           </View>
         </View>
         <View style={styles.footerRight}>

@@ -32,7 +32,6 @@ const Login = () => {
 
   const onSubmit = (data) => {
     dispatch(ac.signIn(data.email, data.password));
-
   };
 
   const getCandidateByUid = useSelector(
@@ -66,6 +65,7 @@ const Login = () => {
           uid: signIn.data.uid,
           accessToken: signIn.data.accessToken,
         });
+        navigation.navigate("MainStack");
       }
       if (getCandidateByUid.error) {
         Alert.alert(

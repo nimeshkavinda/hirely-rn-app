@@ -3,6 +3,7 @@ import { AntDesign } from "@expo/vector-icons";
 import colors from "../theme/colors";
 import { Platform } from "react-native";
 import HomeStack from "./HomeStack";
+import ProfileStack from "./ProfileStack";
 
 const Tab = createBottomTabNavigator();
 
@@ -22,13 +23,13 @@ export default function MainStack() {
           return <AntDesign name={iconName} size={size} color={color} />;
         },
         tabBarShowLabel: false,
-        tabBarActiveTintColor: colors.primary.bg,
-        tabBarInactiveTintColor: colors.grey.dark,
+        tabBarActiveTintColor: colors.primary,
+        tabBarInactiveTintColor: "#3B3B3B",
         tabBarStyle: {
           borderTopWidth: 0,
           borderTopColor: "transparent",
           elevation: 6,
-          shadowColor: colors.grey.dark,
+          shadowColor: "#3B3B3B",
           shadowOpacity: 0.1,
           shadowOffset: {
             height: 6,
@@ -44,11 +45,11 @@ export default function MainStack() {
         options={{ headerShown: false }}
         component={HomeStack}
       />
-      {/* <Tab.Screen
+      <Tab.Screen
         name="ProfileStack"
         options={{ headerShown: false }}
         component={ProfileStack}
-      /> */}
+      />
     </Tab.Navigator>
   );
 }

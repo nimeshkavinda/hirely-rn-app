@@ -21,6 +21,10 @@ const styles = StyleSheet.create({
     marginTop: 16,
     marginHorizontal: 20,
   },
+  flatListWrapper: { flex: 1 },
+  flatList: {
+    paddingHorizontal: 20,
+  },
 });
 
 export default styles;

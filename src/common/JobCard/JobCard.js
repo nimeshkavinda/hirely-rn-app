@@ -59,10 +59,14 @@ const JobCard = ({
             </Text>
           </View>
           <View style={styles.pill}>
-            <Text style={styles.pillText}>{location}</Text>
+            <Text style={styles.pillText} numberOfLines={1}>
+              {location}
+            </Text>
           </View>
           <View style={styles.pill}>
-            <Text style={styles.pillText}>{jobType}</Text>
+            <Text style={styles.pillText}>
+              {jobType}
+            </Text>
           </View>
         </View>
         <View style={styles.footerRight}>

@@ -119,8 +119,8 @@ const JobView = ({ navigation, route }) => {
       if (isFound) {
         setApplyStatus(true);
         Alert.alert(
-          "Success",
-          "Applied for the job",
+          "Applied",
+          "You have applied for this job",
           [
             {
               text: "OK",

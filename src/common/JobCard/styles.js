@@ -55,6 +55,7 @@ const styles = StyleSheet.create({
     lineHeight: 14,
     color: "#000",
     textTransform: "capitalize",
+    maxWidth: 60,
   },
   footerWrapper: {
     flexDirection: "row",

@@ -7,26 +7,26 @@ import { ActivityIndicator } from "react-native";
 const backgroundColor = (variant) => {
   switch (variant) {
     case "primary":
-      return `${colors.primary.bg}`;
+      return `${colors.primary}`;
     case "secondary":
-      return `${colors.secondary.bg}`;
+      return `${colors.primary}`;
     case "link":
       return `transparent`;
     default:
-      return `${colors.primary.bg}`;
+      return `${colors.primary}`;
   }
 };
 
 const textColor = (variant) => {
   switch (variant) {
     case "primary":
-      return `${colors.primary.text}`;
+      return `${"#fff"}`;
     case "secondary":
-      return `${colors.secondary.text}`;
+      return `${colors.primary}`;
     case "link":
-      return `${colors.secondary.text}`;
+      return `${colors.primary}`;
     default:
-      return `${colors.primary.text}`;
+      return `${"#fff"}`;
   }
 };
 
@@ -71,7 +71,7 @@ export default function Button({
         <LoadingView>
           <ActivityIndicator
             size="small"
-            color={colors.primary.text}
+            color={"#fff"}
             style={{ marginRight: 8 }}
           />
           <Title variant={variant} style={style}>

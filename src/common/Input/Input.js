@@ -5,7 +5,7 @@ import colors from "../../theme/colors";
 
 const borderColor = (isError) => {
   if (isError) {
-    return `1px solid ${colors.error.primary}`;
+    return `1px solid ${colors.highlight}`;
   }
   return `none`;
 };

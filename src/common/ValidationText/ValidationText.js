@@ -5,7 +5,7 @@ import { Platform } from "react-native";
 import colors from "../../theme/colors";
 
 const StyledText = styled.Text`
-  color: ${colors.error.primary};
+  color: ${colors.highlight};
   ${Platform.OS === "android" ? `font-family: ${"Inter"}` : ""};
 `;
 

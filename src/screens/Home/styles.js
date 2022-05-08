@@ -1,10 +1,11 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Platform, StatusBar } from "react-native";
 import colors from "../../theme/colors";
 
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
     backgroundColor: "#fff",
+    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
   },
   header: {
     marginTop: 30,
@@ -153,8 +154,18 @@ const styles = StyleSheet.create({
     fontWeight: "600",
     paddingTop: 6,
   },
-  cardsWrapper: {
-    marginVertical: 20,
+  // cardsWrapper: { paddingVertical: 20 },
+  flatList: { paddingVertical: 20 },
+  loading: {
+    zIndex: 99999,
+    position: "absolute",
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#ffffff80",
   },
 });
 

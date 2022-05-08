@@ -47,10 +47,10 @@ const Login = () => {
   useEffect(
     function () {
       if (signIn.data) {
-        dispatch(ac.getCandidateByUid(signIn.data.uid));
+        dispatch(ac.getCandidateByUid(signIn.data?.uid));
       }
       if (signIn.error) {
-        message.error(signIn.error.code);
+        message.error(signIn.error?.code);
       }
     },
     [signIn, dispatch, navigation]
@@ -62,15 +62,15 @@ const Login = () => {
         // localStorage.setItem("uid", signIn.data.uid);
         // localStorage.setItem("accessToken", signIn.data.accessToken);
         storeData({
-          uid: signIn.data.uid,
-          accessToken: signIn.data.accessToken,
+          uid: signIn.data?.uid,
+          accessToken: signIn.data?.accessToken,
         });
         navigation.navigate("MainStack");
       }
       if (getCandidateByUid.error) {
         Alert.alert(
           "Failed to login",
-          signIn.error.code || getCandidateByUid.error,
+          signIn.error?.code || getCandidateByUid.error,
           [
             {
               text: "OK",
